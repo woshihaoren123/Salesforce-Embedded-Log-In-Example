@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Salesforce Embedded Log In Config -->
+    <meta name="salesforce-community" content="<%= community_url%>">
+    <meta name="salesforce-mode" content="<%= community_mode%>-callback">
+    <meta name="salesforce-save-access-token" content="true">
+    <meta name="salesforce-allowed-domains" content="*.heroku.com">
+
+    <meta name="salesforce-target" content="#salesforce-login">
+    <meta name="salesforce-login-handler" content="onLogin">
+    <meta name="salesforce-logout-handler" content="onLogout">
+
+    <!-- Salesforce Embedded Log In External Files -->
+    <link href="<%= community_url%>/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
+    <!-- -->
+    <script src="<%= community_url%>/servlet/servlet.loginwidgetcontroller?type=javascript_widget" async defer></script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
