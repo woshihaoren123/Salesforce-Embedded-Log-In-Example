@@ -39,6 +39,31 @@
         <div id="salesforce-login"></div>
     </div>
 
+    <script>
+        function onLogin(identity) {
+            console.log(identity);
+            var sourceDiv = document.querySelector('salesforce-login');
+
+
+
+            var targetDiv = document.createElement('div');
+            targetDiv.id = "sfid-identity";
+            targetDiv.innerHTML = identity;
+            sourceDiv.appendChild(targetDiv);
+
+
+
+        }
+
+
+
+
+
+        function onLogout() {
+            SFIDWidget.init();
+
+        }
+    </script>
 </body>
 
 </html>
