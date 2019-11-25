@@ -17,7 +17,7 @@ const COMMUNITY_MODE = process.env.SALESFORCE_MODE;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + '/public'));
 
 var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
