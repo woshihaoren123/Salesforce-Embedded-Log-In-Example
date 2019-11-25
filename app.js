@@ -1,3 +1,4 @@
+const PORT = 3000;
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -23,11 +24,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/** 
+
 var indexRouter = require('./routes/index');
+app.use('/', indexRouter);
+/** 
 var usersRouter = require('./routes/users');
 var callbackRouter = require('./routes/callback');
-app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
 app.use('/_callback', callbackRouter) */
 
@@ -47,9 +50,10 @@ app.use(function(err, req, res, next) {
 });
 
 //Routes
-app.get('/', function(req, res) {
 
-    res.render('./routes/index', {
+app.get('/', function(req, res) {
+    console.log(111111)
+    res.render('index', {
         community_url: COMMUNITY_URL,
         app_id: APP_ID,
         callback_url: OAUTH_CALLBACK_URL,
@@ -59,7 +63,7 @@ app.get('/', function(req, res) {
 
 app.get('/_callback', function(req, res) {
 
-    res.render('./routes/callback', {
+    res.render('callback', {
         community_url: COMMUNITY_URL,
         app_id: APP_ID,
         callback_url: OAUTH_CALLBACK_URL,
