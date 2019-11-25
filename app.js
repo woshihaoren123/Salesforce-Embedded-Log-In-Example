@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || 3000;
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -26,12 +27,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
-/** 
+
 var usersRouter = require('./routes/users');
 var callbackRouter = require('./routes/callback');
 
 app.use('/users', usersRouter);
-app.use('/_callback', callbackRouter) */
+app.use('/_callback', callbackRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
