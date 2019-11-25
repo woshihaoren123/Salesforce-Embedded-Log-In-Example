@@ -6,13 +6,12 @@ var logger = require('morgan');
 
 var app = express();
 
-const COMMUNITY_URL = process.env.COMMUNITY_URL;
-const APP_ID = process.env.APP_ID;
-const APP_SECRET = process.env.APP_SECRET;
-const OAUTH_CALLBACK_URL = process.env.OAUTH_CALLBACK_URL;
-const HOSTED_APP_URL = process.env.HOSTED_APP_URL;
-const BG_FAKE = process.env.BG_FAKE;
-const STATIC_ASSET_URL = process.env.STATIC_ASSET_URL;
+const COMMUNITY_URL = process.env.SALESFORCE_COMMUNITY_URL;
+const APP_ID = process.env.SALESFORCE_CLIENT_ID;
+const APP_SECRET = process.env.SALESFORCE_CLIENT_SECRET;
+const OAUTH_CALLBACK_URL = process.env.SALESFORCE_CALLBACK_URL;
+const HOSTED_APP_URL = process.env.SALESFORCE_HEROKUAPP_URL;
+const COMMUNITY_MODE = process.env.SALESFORCE_MODE;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
