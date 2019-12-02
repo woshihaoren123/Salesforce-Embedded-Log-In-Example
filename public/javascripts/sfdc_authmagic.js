@@ -165,7 +165,7 @@ var SFIDWidget = function() {
 
                 logowrapper.appendChild(img);
                 var dialogTitle = document.createElement('h2');
-                dialogTitle.id = "dialogTitle11111111111111111111111111";
+                dialogTitle.id = "dialogTitle";
                 var textNode = document.createTextNode("Salesforce Login");
                 dialogTitle.appendChild(textNode);
                 content.setAttribute("role", "dialog");

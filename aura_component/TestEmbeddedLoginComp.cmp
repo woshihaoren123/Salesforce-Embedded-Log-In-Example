@@ -1,0 +1,81 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable,forceCommunity:availableForAllPageTypes" access="GLOBAL" controller="TestEmbeddedLoginController">
+    
+    <!-- Configuration -->
+	<aura:attribute name="responseType" type="String" default="token"/>    
+    <aura:attribute name="clientId" type="String" default="3MVG9n_HvETGhr3AUHTe1s_l7Nc.DBzfOzw2sWWCh72yMHZtfWvE0_CetLeQ.uQ8lJHhkmeV9TTa9tzeqalZj"/>    
+    <aura:attribute name="redirectUri" type="String" default="https://embedded-login-example-vs.herokuapp.com/_callback"/> 
+    <aura:attribute name="state" type="String" default="https://embedded-login-example-vs.herokuapp.com/"/> 
+    
+    <aura:attribute name="username" type="String"/>
+    <aura:attribute name="passwd" type="String"/>   
+    <aura:attribute name="authProviders" type="AuthProvider"/>
+    <aura:attribute name="orgId" type="String"/>
+    <aura:attribute name="encodedSiteUrl" type="String"/>   
+    <aura:attribute name="startUrl2" type="String"/>   
+    
+    <aura:attribute name="startUrl" type="String" required="false" description="The url you go to after a successful login" />
+    <aura:attribute name="expid" type="String" required="false" description="The branding experience ID" />   
+    
+    <aura:attribute name="communityForgotPasswordUrl" type="String" access="private"/>
+    <aura:attribute name="communitySelfRegisterUrl" type="String" access="private"/>
+    
+    <aura:registerevent name="sitePropagatedStartUrl" type="c:setStartUrl"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    <aura:dependency resource="c:setStartUrl" type="EVENT"/>
+    <!-- Please uncomment
+    <aura:dependency resource="siteforce:registerQueryEventMap" type="EVENT"/>
+    -->
+    <aura:handler event="c:setStartUrl" action="{!c.setStartUrl}"/>
+    <aura:handler event="c:setExpId" action="{!c.setExpId}"/>    
+    <aura:dependency resource="c:setExpId" type="EVENT"/>      
+    
+    <div class="limiter">
+        <div class="container-login100" >
+            <div class="wrap-login100">
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title">登录</span>
+                    <div class="wrap-input100">
+                        <lightning:input type="string" name="Username" required="true" maxlength="30" label="Username" value="{!v.username}"/>
+                    </div>
+                    <div class="wrap-input100">
+                        <lightning:input type="password" name="Password" required="true" maxlength="30" label="Password" value="{!v.passwd}"/>
+                    </div>
+                    
+                    
+                    
+                    <div class="text-right">
+                        <a href="{!v.communityForgotPasswordUrl}">忘记密码？</a>
+                    </div>
+                    
+                    <div class="container-login100-form-btn">						
+                        <lightning:button aura:id="submit" class="login100-form-btn" label="Login" onclick="{! c.doLogin1 }" />
+                    </div>
+                    
+                    <div class="text1 text-center">
+                        <span>第三方登录</span>
+                    </div>
+                    
+                    <div class="flex-c-m">
+                        <aura:iteration items="{!v.authProviders}" var="ap">
+                                                        
+                            <a href="{!ap.startUrl}" class="login100-social-item bg1">
+                                
+
+ <!--   
+       <a href="https://embedded-login-own-developer-edition.ap16.force.com/embeddedLoginCommunity/services/auth/sso/GoogleAuthProvider?startURL=%2Fservices%2Foauth2%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3D3MVG9n_HvETGhr3AUHTe1s_l7Nc.DBzfOzw2sWWCh72yMHZtfWvE0_CetLeQ.uQ8lJHhkmeV9TTa9tzeqalZj%26redirect_uri%3Dhttps%253A%252F%252Fembedded-login-example-vs.herokuapp.com%252F_callback%26state%3Dhttps%253A%252F%252Fembedded-login-example-vs.herokuapp.com%252F" class="login100-social-item bg1">    
+        -->   
+                                <i class="fa fa-wechat">{!ap.DeveloperName}</i>
+                            </a>
+                        </aura:iteration>						
+                    </div>
+                    
+                    <div class="flex-col-c p-t-25">
+                        <a href="{!v.communitySelfRegisterUrl}" class="txt2">立即注册</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+</aura:component>
