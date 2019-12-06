@@ -195,6 +195,8 @@ var SFIDWidget = function() {
             un.type = "text";
             un.name = "username";
             un.id = "sfid-username";
+            // customer add
+            un.placeholder = "Email Address/Mobile Phone";
             un.setAttribute("autofocus", "autofocus");
 
             var labelEmail = document.createElement("LABEL");
@@ -741,7 +743,6 @@ var SFIDWidget = function() {
     return {
         init: function() {
 
-            debugger;
             SFIDWidget.config = {};
 
             SFIDWidget.config.startURL = location;
@@ -916,7 +917,6 @@ var SFIDWidget = function() {
         },
         login: function() {
 
-            debugger;
             if (SFIDWidget.config != null) {
 
                 if (SFIDWidget.config.mode === 'popup') {
@@ -931,7 +931,6 @@ var SFIDWidget = function() {
 
         },
         authenticate: function() {
-            debugger;
             hideError();
             document.getElementById("sfid-submit").disabled = true;
             document.getElementById("sfid-submit").className = 'sfid-disabled sfid-wide sfid-mb16';
