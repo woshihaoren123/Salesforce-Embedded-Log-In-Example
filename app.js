@@ -24,9 +24,11 @@ app.use('/', indexRouter);
 
 var usersRouter = require('./routes/users');
 var callbackRouter = require('./routes/callback');
+var logoutRouter = require('./routes/logout');
 
 app.use('/users', usersRouter);
 app.use('/_callback', callbackRouter);
+app.use('/logoutRouter', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
